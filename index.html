@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zvestors - Stock Market Learning</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f5fff8;
+      color: #1b2b20;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #d9fadd;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #217c52;
+      margin-right: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: #1f4d36;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links button:hover {
+      background-color: #b4efc7;
+    }
+
+    .content {
+      padding: 40px 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #217c52;
+      margin-bottom: 16px;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">Zvestors</div>
+    <div class="nav-links">
+      <button onclick="loadPage('home')">Home</button>
+      <button onclick="loadPage('quant')">Quantitative Analysis</button>
+      <button onclick="loadPage('screeners')">Screeners</button>
+    </div>
+  </div>
+
+  <div class="content" id="main-content">
+    <h2>Welcome to Zvestors</h2>
+    <p>Zvestors is your Gen Z guide to mastering the stock market.</p>
+    <p>We break down complex financial concepts into simple, snackable lessons made just for university students.</p>
+    <p>Learn how to analyze stocks, screen for winners, and build your investing confidence — all with zero jargon.</p>
+    <p>Start exploring by using the menu above.</p>
+  </div>
+
+  <script>
+    function loadPage(page) {
+      const main = document.getElementById("main-content");
+
+      if (page === 'home') {
+        main.innerHTML = `
+          <h2>Welcome to Zvestors </h2>
+          <p>Zvestors is your Gen Z guide to mastering the stock market.</p>
+          <p>We break down complex financial concepts into simple, snackable lessons made just for university students.</p>
+          <p>Learn how to analyze stocks, screen for winners, and build your investing confidence — all with zero jargon.</p>
+          <p>Start exploring by using the menu above.</p>
+        `;
+      } else if (page === 'quant') {
+  main.innerHTML = `
+    <h2>Quantitative Analysis</h2>
+    <p><strong>Quantitative Analysis</strong> is a method used in finance/stock market that relies on math and statistics to understand and predict the value of asset classes like stocks, mutual funds, etc.</p>
+
+    <h3>These analyses help to decide:</h3>
+    <ul>
+      <li>When to Buy?</li>
+      <li>When to Sell?</li>
+      <li>How risky a Trade is?</li>
+      <li>How much profit they might make?</li>
+    </ul>
+
+    <h3>Example: Shopping at a Sale</h3>
+    <p>Imagine you're shopping online for shoes. You want the <strong>best deal</strong>. So, over the past 6 months, you’ve tracked:</p>
+    <ul>
+      <li>Price changes every week</li>
+      <li>When the shoe goes out of stock</li>
+      <li>When big discounts usually happen</li>
+    </ul>
+    <p>You notice a <strong>pattern</strong>: The price drops 30% during the first week of every month and sells out quickly after.</p>
+    <blockquote>"I will buy these shoes if they are 30% off and it's the first week of the month."</blockquote><br>
+<p>The upcoming parameters are used to value a stock through quantitative analysis</p>
+    <hr>
+
+    <h3>1. P/E Ratio: Price to Earnings Ratio</h3>
+    <p><strong>Simple:</strong> How much an investor is willing to pay for ₹1 of a company’s earnings.</p>
+    <p><strong>Formula:</strong> P/E = Price per share / Earnings per share (EPS)</p>
+
+    <h4>Example:</h4>
+    <ul>
+      <li>Shop A: ₹10L price, ₹2L profit → P/E = 5</li>
+      <li>Shop B: ₹20L price, ₹2L profit → P/E = 10</li>
+    </ul>
+    <p><strong>Lower P/E</strong> = cheaper (but not always better), <strong>Higher P/E</strong> = growth expected.</p>
+<p><b>Summary:</b>
+
+Lower P/E = cheaper deal (but not always better)<br>
+Higher P/E = market expects more growth
+<br>
+
+So P/E helps you know how much you're paying for ₹1 of a company's earnings — just like valuing a pizza shop!</p>
+    <hr>
+
+    <h3>2. EPS: Earnings Per Share</h3>
+    <p><strong>EPS</strong> shows how much profit each share earned.</p>
+    <p><strong>Formula:</strong> EPS = Net Profit / Number of Shares</p>
+
+    <h4>Example:</h4>
+    <p>₹10L profit / 1L shares = ₹10 EPS → Each share “earned” ₹10.</p><br>
+<p>Example (Donut Shop):<br>
+
+  Let’s say:<br>
+
+- Donut Co. made ₹10,00,000 profit this year<br>
+- It has 1,00,000 total shares<br>
+
+<b>So:</b>
+<br>
+         EPS = ₹10,00,000 / 1,00,000 = ₹10
+<br>
+<b>Meaning:</b>
+<br>
+                     Each share earned ₹10 profit this year.
+
+                     If you had 1 share, you “own” ₹10 of the company’s earnings (not cash in hand, but value). 
+<br>
+<b>Summary:</b>
+<br>
+- High EPS = Company is making more money per share<br>
+- Low EPS = Not much profit per share (could be risky or still growing)</p>
+    <hr>
+
+    <h3><p><b>3. Market Capitalization (Market Cap):</b></p></h3>
+
+<p><b>Simple Definition:</b><br>
+Market Capitalization is a value attained by the product of the total number of outstanding shares and the current market price of one share of the respective company.</p>
+
+<p>This value represents the total market value of all of a company's outstanding shares and is a key metric for understanding a company's size and overall market value.</p>
+
+<p><b>Formula:</b><br>
+Market Capitalization = Total no. of outstanding shares × Current market price of one share</p>
+
+<p><b>Example: Burger Bros Ltd.</b></p>
+
+<p>Let’s say a company called <b>Burger Bros Ltd.</b> has:</p>
+<ul>
+  <li><b>Share Price</b> = ₹200</li>
+  <li><b>Total Shares</b> = 10,00,000 (10 lakh shares)</li>
+</ul>
+
+<p>Then,<br>
+Market Cap = ₹200 × 10,00,000 = ₹20,00,00,000 (₹20 Crores)</p>
+
+<p><b>Burger Bros is worth ₹20 Crores in the stock market.</b></p>
+
+<p>If someone wants to “buy the whole company,” in theory, they’d need to pay ₹20 crores — that’s the company’s <b>market value</b>.</p>
+
+<p><b>Summary:</b><br>
+<b>Large Cap</b> = Big, stable companies (like Reliance, TCS)<br>
+<b>Mid Cap</b> = Growing companies (like Indigo)<br>
+<b>Small Cap</b> = Small but risky companies (like micro startups)</p>
+
+    <hr>
+
+    <h3><p><strong>4. Book Value:</strong></p></h3>
+
+<p><strong>Simple Definition:</strong><br>
+Book Value is the total value of a company’s assets minus its liabilities (what it owes).</p>
+
+<p>It tells you what the company is worth on paper — like its "true value" if it was shut down today and everything was sold.</p>
+
+<p><strong>Formula:</strong><br>
+Book Value = Total Assets – Total Liabilities</p>
+
+<p><strong>Example: A Company.inc</strong></p>
+
+<p>If a company has:</p>
+<ul>
+  <li>Assets worth ₹100 Crores</li>
+  <li>Debts of ₹20 Crores</li>
+</ul>
+
+<p>Then the book value = ₹80 Crores</p>
+
+<p>If the company has 10 crore shares:</p>
+<p>Book Value per Share = ₹80 Crores ÷ 10 Crores = ₹8</p>
+
+<p><strong>Summary:</strong></p>
+<ul>
+  <li>If a stock’s market price is lower than its book value, it might be undervalued (good for long-term investors)</li>
+  <li>High book value means the company has strong assets and less debt</li>
+</ul>
+
+    <hr>
+
+    <h3><p><strong>5. Debt to Equity Ratio (D/E):</strong></p>
+        </h3>
+
+<p><strong>Simple Definition:</strong><br>
+The Debt-to-Equity ratio shows how much money a company has borrowed (debt) compared to how much money the owners/shareholders have invested (equity).</p>
+
+<p><strong>Formula:</strong><br>
+D/E Ratio = Total Debt / Shareholder’s Equity</p>
+
+<p><strong>Example:</strong><br>
+Imagine your friend Arjun starts a food truck business:</p>
+<ul>
+  <li>He takes a loan of ₹5 lakhs (debt)</li>
+  <li>He invests ₹2 lakhs from his own savings (equity)</li>
+</ul>
+
+<p>D/E Ratio = ₹5,00,000 ÷ ₹2,00,000 = 2.5</p>
+<p>This means Arjun is using ₹2.5 of borrowed money for every ₹1 of his own money.</p>
+
+
+<p><strong>Summary:</strong></p>
+<ul>
+  <li>Low D/E = Company is using more of its own money to run the business (safer)</li>
+  <li>High D/E = Company is using more loans (riskier, especially if profits fall)</li>
+</ul>
+<br>
+<img src="debt.png" alt="Illustration" style="max-width: 300px; height: auto; border-radius: 8px; display: block; margin: 20px auto;"><br>
+    <hr>
+
+    <h3><p><strong>6. Price to Book Value (P/B Ratio):</strong></p></h3>
+
+<p><strong>Simple Definition:</strong><br>
+It shows whether a stock is <strong>cheap (undervalued)</strong> or <strong>expensive (overvalued)</strong> based on its real worth.</p>
+
+<p>The <strong>P/B ratio</strong> tells you how much investors are paying for a company compared to its actual book value (what the company owns minus what it owes).</p>
+
+<p><strong>Formula:</strong><br>
+P/B Ratio = Share Price / Book Value per Share (BVPS)</p>
+
+<p><strong>Example:</strong><br>
+If a company's stock price is ₹100 and its book value per share is ₹50:</p>
+
+<p>P/B Ratio = 100 ÷ 50 = 2</p>
+<p>This means investors are paying ₹2 for every ₹1 of the company’s real value.</p>
+
+<p><strong>Key Takeaways:</strong></p>
+<ul>
+  <li>The P/B ratio measures the market's valuation of a company relative to its book value.</li>
+  <li>The market value of equity is typically higher than the book value of a company's stock.</li>
+  <li>Used by value investors to identify potential investments.</li>
+  <li>P/B ratios under 1.0 are often considered solid investments.</li>
+  <li>A good P/B ratio is relative to the business and its industry.</li>
+</ul>
+<br>
+    <hr>
+
+    <h3><p><strong>7. Return on Investment (ROI):</strong></p></h3>
+
+<p><strong>Simple Definition:</strong><br>
+ROI shows <strong>how much profit you made from an investment compared to how much you spent</strong>. It’s written as a <strong>percentage</strong> to easily compare different investments.</p>
+
+<p><strong>Formula:</strong><br>
+ROI = (Gain – Cost) ÷ Cost × 100</p>
+
+<p><strong>Example: Burger Shop Investment</strong></p>
+<p>Let’s say you invest ₹10,000 in a small burger stall.<br>
+After a few months, you earn ₹13,000 from it (including your investment + profit).</p>
+
+<ul>
+  <li><strong>Gain = ₹13,000</strong></li>
+  <li><strong>Cost = ₹10,000</strong></li>
+</ul>
+
+<p>ROI = (13,000 – 10,000) ÷ 10,000 × 100<br>
+= 3,000 ÷ 10,000 × 100<br>
+= 30%</p>
+
+<p>You made a <strong>30% return</strong> on your investment. For every ₹10
+<br>
+    <img src="roi.png" alt="ROI Example Chart" style="max-width: 300px; height: auto; border-radius: 8px; display: block; margin: 20px auto;">
+<br><hr>
+
+    <h3><p><strong>8. Promoter Holding:</strong></p></h3>
+
+<p><strong>Simple Definition:</strong><br>
+Promoter holding is the <strong>percentage of shares in a company owned by its promoters</strong>.</p>
+
+<p>Promoters are the <strong>founders, owners, or key people</strong> who started or control the company. This tells us <strong>how much skin the original creators have in the game</strong>.</p>
+
+<p><strong>Example: Pizza Boss Ltd.</strong></p>
+<ul>
+  <li>Total shares = 1,00,000</li>
+  <li>Promoter owns = 60,000 shares</li>
+</ul>
+
+<p>Promoter Holding = (60,000 ÷ 1,00,000) × 100 = <strong>60%</strong><br>
+The promoter owns 60% of the company — shows strong control and confidence.</p>
+
+<p><strong>Summary:</strong></p>
+<ul>
+  <li><strong>High promoter holding</strong> (50% or more) = Promoters are confident and involved</li>
+  <li><strong>Low promoter holding</strong> = May indicate promoters are less involved</li>
+</ul>
+<br>
+<hr>
+<h3>
+<p><strong>9. Dividend Yield:</strong></p></h3>
+
+<p><strong>Simple Definition:</strong><br>
+Dividend Yield tells you <strong>how much money (dividend) a company pays you every year compared to its stock price</strong> — shown as a percentage.</p>
+
+<p>It’s like the <strong>interest you earn for holding a stock.</strong></p>
+
+<p><strong>Formula:</strong><br>
+Dividend Yield = (Annual Dividend ÷ Share Price) × 100</p>
+
+<p><strong>Example: Orange Ltd.</strong></p>
+<ul>
+  <li>Share Price = ₹200</li>
+  <li>Annual Dividend = ₹10</li>
+</ul>
+<p>Dividend Yield = (10 ÷ 200) × 100 = <strong>5%</strong></p>
+
+<p>If you buy 1 share at ₹200, you’ll get ₹10 every year as dividend.<br>
+That’s a <strong>5% return</strong> just from holding — like cashback every year!</p>
+<br>
+<hr>
+<h3>
+<p><strong>10. Face Value:</strong></p></h3>
+
+<p><strong>Simple Definition:</strong><br>
+Face Value (or Par Value) is the <strong>original price of a share</strong> set by the company when first issued. It has <strong>nothing to do with market price</strong>.</p>
+
+<p>It is used for accounting things like <strong>dividends and share capital</strong>.</p>
+
+<p><strong>Example: Tech Vibe Ltd.</strong></p>
+<ul>
+  <li>Face Value = ₹10</li>
+  <li>Market Price = ₹150</li>
+</ul>
+<p>This means the company originally set the base value at ₹10, but it is traded at ₹150.</p>
+
+<p><strong>Why Face Value Matters:</strong></p>
+<ul>
+  <li>Dividends are often declared based on face value</li>
+  <li>Helps calculate share capital (e.g., 1,00,000 shares × ₹10 = ₹10L capital)</li>
+</ul>
+
+<p>Think of face value like the <strong>MRP printed on a sneaker box</strong> — resale price varies based on demand.</p>
+<br>
+<hr>
+
+<p><strong>Stock Market Key Terms – Quick Summary:</strong></p>
+<ol>
+  <li><strong>Quantitative Analysis</strong> – Uses data and math to guide decisions</li>
+  <li><strong>P/E Ratio</strong> – How much you pay for ₹1 of company earnings</li>
+  <li><strong>EPS</strong> – Profit made per share</li>
+  <li><strong>Market Cap</strong> – Total company value = price × shares</li>
+  <li><strong>Book Value</strong> – Assets minus debts (net worth)</li>
+  <li><strong>D/E Ratio</strong> – Debt vs equity balance</li>
+  <li><strong>P/B Ratio</strong> – Price vs book value</li>
+  <li><strong>ROI</strong> – Return from investment as a %</li>
+  <li><strong>Promoter Holding</strong> – Founders’ ownership share</li>
+  <li><strong>Dividend Yield</strong> – % income from dividends</li>
+  <li><strong>Face Value</strong> – Base value of a share (used for accounting)</li>
+</ol><br>
+
+    `;      
+      } else if (page === 'screeners') {
+        main.innerHTML = `
+          <h2>Screeners</h2>
+          <p><b>1. Introduction to Stock Screeners</b></p>
+
+<p><b>1.1 What is a Stock Screener?</b></p>
+<p>A <b>stock screener</b> is a digital tool that filters stocks based on specific criteria set by the user. Investors use screeners to quickly identify companies that match their investment strategy — whether that’s low debt, high profit growth, undervaluation, or technical breakouts.</p>
+<p>Stock screeners save time by scanning thousands of listed stocks and presenting only those that meet your exact conditions. They are widely used for both fundamental and technical analysis.</p>
+<p><b>Example:</b> Want companies with ROCE &gt; 20%, low debt, and consistent growth? A screener finds them in seconds.</p>
+
+<p><b>1.2 Why Screeners Are Essential for Smart Investing</b></p>
+<p>In a market with over 5,000 listed companies on the NSE and BSE, identifying the right stocks to invest in can be overwhelming. This is where stock screeners become indispensable.</p>
+<p>A screener acts like a <b>filtering engine</b> — it helps you <b>narrow down stocks based on financial, technical, or valuation-based criteria</b>. Instead of manually going through hundreds of balance sheets or charts, you can apply filters such as:</p>
+<ul>
+<li>Market capitalization &gt; ₹1,000 Cr</li>
+<li>Debt-to-equity ratio &lt; 0.1</li>
+<li>ROCE &gt; 20%</li>
+<li>Profit growth &gt; 15% over 5 years</li>
+</ul>
+<p>This immediately gives you a refined list of companies worth studying further.</p>
+
+<p><b>Key Benefits:</b></p>
+<ul>
+<li><b>Saves Time:</b> Quickly eliminates unsuitable stocks</li>
+<li><b>Objective Decision-Making:</b> Reduces emotional bias</li>
+<li><b>Customization:</b> Tailor filters to suit your investment style</li>
+<li><b>Discover Hidden Gems:</b> Unearth small and mid-cap companies with strong fundamentals</li>
+</ul>
+
+<p>Whether you're a long-term investor or a short-term trader, screeners help you <b>focus only on quality opportunities</b> — making your research sharper and decisions more data-driven.</p>
+
+<p><b>1.3 Popular Screener Platforms</b></p>
+<p>Several platforms in India offer stock screening tools, each tailored to different investor needs. Here are the most widely used ones:</p>
+
+<p><b>1. Screener.in</b><br>
+<b>Best for:</b> Fundamental analysis<br>
+<b>Features:</b> Custom query builder, financial data, peer comparison, export to Excel<br>
+<b>Why it's popular:</b> Clean interface, free access, highly customizable</p>
+
+<p><b>2. Trendlyne</b><br>
+<b>Best for:</b> Alerts, scoring models, and analyst forecasts<br>
+<b>Features:</b> DVM (Dynamic Valuation Model), star ratings, screener + portfolio tracker<br>
+<b>Use case:</b> Long-term investors who want predictive tools and visual insights</p>
+
+<p><b>3. Tickertape</b><br>
+<b>Best for:</b> Beginner-friendly screening<br>
+<b>Features:</b> Pre-built screens, forecast metrics, mutual fund holdings<br>
+<b>Strength:</b> Intuitive design, integration with broker accounts for investing</p>
+
+<p><b>4. TradingView (India)</b><br>
+<b>Best for:</b> Technical analysis-based screening<br>
+<b>Features:</b> Real-time charts, indicators, stock screener with custom filters<br>
+<b>Use case:</b> Traders focused on price action, momentum, and breakout setups</p>
+
+<p><b>5. Moneycontrol Screener</b><br>
+<b>Best for:</b> Basic screening with popular financial ratios<br>
+<b>Strength:</b> Quick filters for P/E, EPS, dividend yield; accessible to casual investors</p>
+
+<p>Each of these platforms serves different purposes. <b>Screener.in</b> is ideal for deep-dive fundamental research, while <b>TradingView</b> is better for chart-driven strategies. Many serious investors use <b>a combination</b> of these tools to make more informed decisions.</p>
+<!-- Section 2: Basics of Fundamental Screening -->
+
+<p><b>2.1 Understanding Key Financial Terms</b></p>
+
+<p><b>Foundational Concepts to Know:</b></p>
+
+<ul>
+  <li><b>Revenue</b>: The total income generated from sales before any expenses. It reflects the demand for the company’s products or services.</li>
+  <li><b>Net Profit</b>: The actual earnings after all expenses, taxes, and interest. It's the company's "bottom line."</li>
+  <li><b>EBITDA</b>: Earnings before interest, tax, depreciation, and amortization. A quick way to assess operational profitability.</li>
+  <li><b>EPS (Earnings Per Share)</b>: How much profit is earned per outstanding share. Higher EPS generally means better profitability.</li>
+  <li><b>Dividend Yield</b>: Tells you how much return (as a percentage of share price) you earn from dividends. Important for income-focused investors.</li>
+  <li><b>Free Cash Flow</b>: The cash left after operational expenses and capital expenditures. Strong free cash flow supports dividends, expansion, and debt repayment.</li>
+  <li><b>Promoter Holding</b>: The percentage of company shares held by the original founders or promoters. High and increasing promoter holding often signals confidence in the business.</li>
+</ul>
+
+<p>Understanding these terms equips you to use any screener efficiently and interpret the results meaningfully — instead of blindly following filters.</p>
+
+<p><b>2.2 Most Important Ratios for Long-Term Investors</b></p>
+
+<p>Long-term investing is about quality — businesses that grow steadily, manage risk well, and deliver consistent returns. Certain financial ratios help identify these kinds of companies.</p>
+
+<p><b>Here are the most crucial ones:</b></p>
+
+<ul>
+  <li><b>Return on Capital Employed (ROCE)</b>: Measures how efficiently a company generates profit from its total capital. A consistently high ROCE (above 15–20%) signals a strong, capital-efficient business.</li>
+  <li><b>Return on Equity (ROE)</b>: Shows how much profit a company generates with shareholders' equity. A high ROE (above 15%) is a sign of strong profitability and good management.</li>
+  <li><b>Debt-to-Equity Ratio</b>: Assesses financial leverage. A lower ratio (&lt; 0.5) means the company is not overly dependent on borrowed money, reducing risk during downturns.</li>
+  <li><b>Earnings Per Share (EPS) Growth</b>: Look for companies with consistent year-on-year EPS growth — a sign of sustainable profit generation.</li>
+  <li><b>Price-to-Earnings (P/E) Ratio</b>: Indicates how much you're paying for ₹1 of earnings. Lower P/E may suggest undervaluation but should be compared with peers and growth potential.</li>
+  <li><b>CAGR (Profit & Sales)</b>: Compound Annual Growth Rate over 3 or 5 years gives a clear picture of the company’s growth trajectory.</li>
+  <li><b>Free Cash Flow to Sales Ratio</b>: Measures how much actual cash the business is generating from its revenue. Positive and rising free cash flow is a strong sign of operational health.</li>
+</ul>
+
+<p>Strong companies tend to perform well on multiple ratios consistently, not just one.</p>
+
+<p><b>2.3 How to Read a Company Snapshot (Using Screener.in)</b></p>
+
+<p>The company snapshot on Screener.in gives you a high-level overview of a stock’s fundamentals. For long-term investors, it’s the first checkpoint before deep-diving into financials.</p>
+
+<ul>
+  <li><b>Business Summary</b>: At the top, you’ll see a brief description of what the company does. Use this to understand its sector and model.</li>
+  <li><b>Key Metrics Box</b>: Look at Market Cap, Current Price, Stock P/E, ROCE, ROE, Debt to Equity, Face Value, and Book Value for quick insights.</li>
+  <li><b>Chart + Financial Trend</b>: Screener shows a 10-year bar chart for revenue and profit. You're looking for consistent upward trends.</li>
+  <li><b>Financials Tabs</b>: Use Profit & Loss for consistency, Balance Sheet for reserves/borrowings, and Cash Flow for operating cash.</li>
+  <li><b>Ratios Section</b>: This includes return ratios, margins, debt metrics, and growth stats. Useful for spotting strengths or red flags.</li>
+  <li><b>Promoter Holding & Pledges</b>: Located below the financials. Stable/increasing promoter holding is a positive; high pledges are a red flag.</li>
+  <li><b>Peers Table</b>: Compare key metrics with competitors in the same sector. This helps evaluate valuation and strength within the industry.</li>
+</ul>
+
+<p>The snapshot is like a health report. If it looks strong, move to deeper analysis. If not, screen other candidates.</p>
+<!-- Section 3: Writing Screener Queries on Screener.in -->
+
+<p><b>3.1 Writing Screener Queries on Screener.in</b></p>
+
+<p>Screener.in uses a simple query language that allows investors to filter companies based on financial criteria. It’s beginner-friendly and requires no coding knowledge. But knowing how to write effective queries is key.</p>
+
+<p><b>Structure of a Query:</b></p>
+
+<p>[Field Name] [Operator] [Value]</p>
+
+<p>You can combine conditions using logical connectors like AND or OR.</p>
+
+<p><b>Example:</b></p>
+
+<p>
+Market Capitalization > 500<br>
+AND Return on capital employed > 20<br>
+AND Debt to equity < 0.5<br>
+AND Profit growth 5Years > 15
+</p>
+
+<p>This finds companies with a market cap above ₹500 Cr, strong capital efficiency, low debt, and good profit growth.</p>
+
+<p><b>Commonly Used Operators:</b></p>
+
+<ul>
+  <li><b>&gt;</b>: Greater than</li>
+  <li><b>&lt;</b>: Less than</li>
+  <li><b>=</b>: Equal to</li>
+  <li><b>&gt;=</b>: Greater than or equal to</li>
+  <li><b>&lt;=</b>: Less than or equal to</li>
+  <li><b>AND</b>: Combine multiple conditions</li>
+  <li><b>OR</b>: At least one condition should match</li>
+</ul>
+
+<p>Note: Use full field names like <b>Return on capital employed</b>, not abbreviations like ROCE.</p>
+
+<p><b>How to Find Valid Field Names:</b></p>
+
+<p>Use the “Variables” button on the Screener query page. Here are some commonly used field names:</p>
+
+<ul>
+  <li><b>Valuation Metrics</b>: Market Capitalization, Enterprise Value, P/E, P/B, EVEBITDA, PEG Ratio</li>
+  <li><b>Profitability</b>: ROE, Return on capital employed, Operating profit margin, Net profit margin, EBITDA margin</li>
+  <li><b>Growth (CAGR)</b>: Profit growth 3Years, Profit growth 5Years, Sales growth 3Years, Sales growth 5Years, EPS growth 5Years</li>
+  <li><b>Debt & Leverage</b>: Debt to equity, Interest Coverage Ratio, Current ratio</li>
+  <li><b>Earnings & Cash Flow</b>: EPS, Free cash flow, Cash from operations last year, Net profit latest quarter</li>
+  <li><b>Dividend Metrics</b>: Dividend yield, Dividend payout ratio</li>
+  <li><b>Price & Returns</b>: Current price, High price 52Week, Low price 52Week, Return over 1year, Return over 3years, Volatility</li>
+  <li><b>Shareholding & Ownership</b>: Promoter holding, FII holding, DII holding, Pledged percentage</li>
+  <li><b>Other Useful Filters</b>: Face value, Number of equity shares, Reserves, Inventory days, Receivables days, Cash conversion cycle</li>
+</ul>
+
+<p><b>Tips for Writing Clean Queries:</b></p>
+
+<ul>
+  <li>Write one condition per line for readability.</li>
+  <li>Use correct spacing and full field names.</li>
+  <li>Use ratios specific to the industry you're screening.</li>
+  <li>Always cross-check using the “Variables” list on Screener.</li>
+</ul>
+
+<p><b>3.2 Example Screener Queries by Investor Style</b></p>
+
+<p><b>Growth Investor:</b></p>
+<p>
+Market Capitalization > 1000<br>
+AND Sales growth 5Years > 15<br>
+AND Profit growth 5Years > 15<br>
+AND Return on capital employed > 18<br>
+AND Debt to equity < 0.5
+</p>
+<p><b>Goal:</b> Find high-growth companies with clean financials.</p>
+
+<p><b>Value Investor:</b></p>
+<p>
+P/E < 15<br>
+AND P/B < 2<br>
+AND ROE > 15<br>
+AND Debt to equity < 0.5<br>
+AND Dividend yield > 1
+</p>
+<p><b>Goal:</b> Find undervalued stocks with strong returns and dividends.</p>
+
+<p><b>Quality + Low-Debt Picks:</b></p>
+<p>
+Return on capital employed > 20<br>
+AND ROE > 18<br>
+AND Debt to equity < 0.2<br>
+AND Operating profit margin > 15<br>
+AND Market Capitalization > 500
+</p>
+<p><b>Goal:</b> Strong companies with high efficiency and low debt.</p>
+
+<p><b>Dividend-Focused Investor:</b></p>
+<p>
+Dividend yield > 3<br>
+AND Dividend payout ratio > 30<br>
+AND ROE > 15<br>
+AND Profit growth 5Years > 10<br>
+AND Debt to equity < 0.6
+</p>
+<p><b>Goal:</b> Find consistent dividend-paying companies with profit growth.</p>
+
+<p><b>3.3 Troubleshooting Query Errors on Screener.in</b></p>
+
+<p><b>Common Errors:</b></p>
+
+<ul>
+  <li><b>Incorrect Field Name</b>: Use full field names from the Variables list (e.g. Return on capital employed, not ROCE).</li>
+  <li><b>Typos or Case Errors</b>: Remove extra spaces or wrong characters.</li>
+  <li><b>Logical Conflicts</b>: Too many strict filters can return no results.</li>
+  <li><b>Wrong Values</b>: Use reasonable numbers. Unrealistic values (like P/E < 2 and ROE > 40) might return nothing.</li>
+</ul>
+
+<p><b>Bonus Tip:</b> Start with 1–2 filters and build step by step to isolate issues.</p>
+
+<p>Once you master this, your screener becomes your custom stock radar — tailored to your goals.</p>
+<!-- Section 4: Screening Strategies with Examples -->
+
+<p><b>4.1 Consistent Profit Growers</b></p>
+
+<p><b>Objective:</b> Find companies that are steadily growing profits and executing well over time.</p>
+
+<p><b>Query:</b></p>
+<p>
+Market Capitalization > 1000<br>
+AND Profit growth 5Years > 15<br>
+AND Sales growth 5Years > 12<br>
+AND Return on capital employed > 18<br>
+AND Debt to equity < 0.5
+</p>
+
+<p><b>Why it works:</b> This focuses on companies that have consistently grown revenue and profits while keeping financial discipline. Ideal for long-term compounding.</p>
+
+<p><b>4.2 Undervalued Quality Stocks</b></p>
+
+<p><b>Objective:</b> Find fundamentally strong businesses that might be temporarily undervalued by the market.</p>
+
+<p><b>Query:</b></p>
+<p>
+P/E < 15<br>
+AND P/B < 2<br>
+AND ROE > 15<br>
+AND Return on capital employed > 18<br>
+AND Debt to equity < 0.5
+</p>
+
+<p><b>Why it works:</b> This setup filters for good profitability and balance sheet health, combined with low valuation multiples — a classic value investing formula.</p>
+
+<p><b>4.3 High ROE + Low Debt Companies</b></p>
+
+<p><b>Objective:</b> Spot businesses that are highly efficient and financially strong.</p>
+
+<p><b>Query:</b></p>
+<p>
+ROE > 20<br>
+AND Return on capital employed > 20<br>
+AND Debt to equity < 0.3<br>
+AND Operating profit margin > 15<br>
+AND Market Capitalization > 500
+</p>
+
+<p><b>Why it works:</b> Strong return ratios indicate efficient use of capital. Low debt reduces risk, especially in economic downturns.</p>
+
+<p><b>4.4 Dividend Yield Picks</b></p>
+
+<p><b>Objective:</b> Identify stocks that offer regular income through dividends.</p>
+
+<p><b>Query:</b></p>
+<p>
+Dividend yield > 3<br>
+AND Dividend payout ratio > 40<br>
+AND ROE > 15<br>
+AND Profit growth 5Years > 10<br>
+AND Debt to equity < 0.6
+</p>
+
+<p><b>Why it works:</b> This screen focuses on companies that generate enough profits to share them regularly, while also maintaining decent growth and financial strength.</p>
+
+<p><b>4.5 Interpreting Screener Results</b></p>
+
+<ul>
+  <li><b>Don’t rush to invest</b> — treat it as a shortlist, not a final decision.</li>
+  <li>Check trends in revenue/profit over time.</li>
+  <li>Read recent annual reports or investor presentations.</li>
+  <li>Compare with peers.</li>
+  <li>Validate with technical levels (support, resistance, volume).</li>
+</ul>
+
+<p>A good screen narrows your focus. A great investor goes deeper from there.</p>
+<!-- Section 5: Deep Dive into Stock Study -->
+
+<p><b>5.1 How to Read Financials on Screener.in</b></p>
+
+<p>Screener provides three core financial statements:</p>
+
+<ul>
+  <li><b>Profit & Loss Statement:</b> Focus on revenue growth, EBITDA margin, and net profit trends over the past 5–10 years.</li>
+  <li><b>Balance Sheet:</b> Look for growing reserves, manageable debt levels, and stable assets.</li>
+  <li><b>Cash Flow Statement:</b> Prioritize positive and consistent cash from operations. Be cautious if profit is high but cash flow is weak.</li>
+</ul>
+
+<p>Check if the company is <b>self-sustaining</b> or reliant on debt and external funding.</p>
+
+<p><b>5.2 Key Qualitative Checks</b></p>
+
+<p>Numbers don’t tell the full story. Go beyond:</p>
+
+<ul>
+  <li><b>Promoter Holding:</b> Stable or increasing promoter stake is a sign of confidence. Avoid stocks with high pledging.</li>
+  <li><b>Peer Comparison:</b> Use Screener’s peer table to benchmark profitability, valuation, and growth.</li>
+  <li><b>Recent Performance:</b> Read the last 2–3 quarterly results and annual report highlights to catch shifts in performance or management tone.</li>
+</ul>
+
+<p><b>5.3 Technical Confirmation (Optional but Powerful)</b></p>
+
+<p>Once fundamentals check out, validate with basic technical levels using platforms like TradingView:</p>
+
+<ul>
+  <li>Is the stock near a long-term support zone?</li>
+  <li>Is it in an uptrend, or still falling?</li>
+  <li>Does volume confirm the move?</li>
+</ul>
+
+<p><b>Fundamentals tell you what to buy, and technicals help with when to enter.</b></p>
+
+<p><b>Final Conclusion: From Screener to Strategy</b></p>
+
+<p>A stock screener is more than a filtering tool — it’s a compass for navigating a market flooded with choices. When used well, it helps you:</p>
+
+<ul>
+  <li>Save time</li>
+  <li>Stay objective</li>
+  <li>Filter out noise</li>
+  <li>Build high-conviction ideas</li>
+</ul>
+
+<p>But remember: <b>a screener only gives you leads — your conviction must come from deeper research.</b></p>
+
+<p>Start small. Build your filters. Track outcomes. Over time, your screener strategy becomes <b>your edge</b>.</p>
+
+        `;
+      }
+    }
+  </script>
+
+</body>
+</html>
